@@ -10,22 +10,22 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.myapplication.R
 
-class FavoritosFragment : Fragment() {
+class FavoritosFragment : Fragment(), FavoritosContrato.View {
 
-    private lateinit var favoritosViewModel: FavoritosViewModel
+    private lateinit var presenter: FavoritosPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        favoritosViewModel =
-            ViewModelProviders.of(this).get(FavoritosViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_favoritos, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        favoritosViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+        presenter = FavoritosPresenter(this)
+        presenter.pegarLista()
+        return inflater.inflate(R.layout.fragment_favoritos, container, false)
+
+    }
+
+    override fun mostrarLista() {
+
     }
 }

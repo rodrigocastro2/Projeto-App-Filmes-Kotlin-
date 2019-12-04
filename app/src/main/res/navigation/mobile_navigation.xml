@@ -17,5 +17,11 @@
         android:label="Favoritos"
         tools:layout="@layout/fragment_favoritos" />
 
+    <fragment
+        android:id="@+id/nav_pesquisar"
+        android:name="com.example.myapplication.ui.pesquisar.PesquisarFragment"
+        android:label="Pesquisar"
+        tools:layout="@layout/fragment_pesquisar" />
+
 
 </navigation>
