@@ -4,19 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.myapplication.ItemOffsetDecoration
 import com.example.myapplication.MainActivity
+import com.example.myapplication.MovieEndPoint
 import com.example.myapplication.R
 import com.example.myapplication.ui.model.Filme
+import com.example.myapplication.ui.retrofit.RetrofitInitializer
 import kotlinx.android.synthetic.main.fragment_populares.*
+import retrofit2.Call
+import retrofit2.Callback
 
 
 class PopularesFragment : Fragment(), PopularesContrato.View {
 
     private lateinit var presenter: PopularesPresenter
-    /*private lateinit var popAdapter : ListaPopularesAdapter*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,9 +46,9 @@ class PopularesFragment : Fragment(), PopularesContrato.View {
 
     fun setupRecycler(){
 
-        lateinit var filme1 : Filme
-        lateinit var filme2 : Filme
-        lateinit var filme3 : Filme
+        val filme1 = Filme()
+        val filme2 = Filme()
+        val filme3 = Filme()
 
         filme1.urlFoto = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg"
         filme2.urlFoto = "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
@@ -54,7 +58,7 @@ class PopularesFragment : Fragment(), PopularesContrato.View {
         filme2.nome = "FILME 2"
         filme3.nome = "FILME 3"
 
-        var lista = mutableListOf(filme1, filme2, filme3)
+        val lista = mutableListOf(filme1, filme2, filme3)
 
 
         recycler_populares.adapter = activity?.let { ListaPopularesAdapter(lista, it) }
@@ -66,5 +70,6 @@ class PopularesFragment : Fragment(), PopularesContrato.View {
         recycler_populares.addItemDecoration(itemDecoration)
 
     }
+
 
 }

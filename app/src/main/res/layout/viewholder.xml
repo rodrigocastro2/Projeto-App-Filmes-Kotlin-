@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/titulofilme"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/imagemcapa"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -38,6 +38,7 @@
                 android:maxLines="1"
                 android:textColor="#000000"
                 android:textSize="15sp"
+                android:background="@drawable/borda"
                 />
 
 

@@ -44,6 +44,7 @@ class ListaPopularesAdapter(private val listaFilmes: List<Filme>,
         //O método bind irá setar a capa e qualquer outro visual
         fun bind(filme : Filme){
             Picasso.get().load(filme.urlFoto).resize(160, 230).placeholder(R.drawable.fancicani).into(itemView.imagemcapa)
+            itemView.titulofilme.text = filme.nome
         }
     }
 }
