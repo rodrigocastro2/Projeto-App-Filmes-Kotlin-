@@ -29,7 +29,8 @@ class MovieRepository {
                     Log.e("sucesso", "deu carregou")
                 }
 
-            } //caralho
+            } //vaitoma no cu
+            //disgrass
         })
 
     }
