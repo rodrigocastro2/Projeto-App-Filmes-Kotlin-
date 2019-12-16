@@ -29,8 +29,7 @@ class MovieRepository {
                     Log.e("sucesso", "deu carregou")
                 }
 
-            } //vaitoma no cu
-            //disgrass
+            } //deu certo essa porra
         })
 
     }
