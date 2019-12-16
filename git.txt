@@ -1,0 +1,18 @@
+Puxar:
+
+1-Entrar na pasta que quer "clonar git clone 'link' "
+2-Entre na pasta, se quiser mudar de branch, "git checkout 'branch' "
+3-Para atualizar, "git pull"
+
+Colocar:
+
+1-Primeiro certifique se você está com a ultima versão, de um "pull"
+2-Verifique com git status se tem algo em vermelho, se tiver "git add ."
+3-Faça um commit, com "git commit -m 'nome' "
+4-De push com "git push origin 'nome da branch' "
+
+Dicas:
+
+1-Com o "git log --oneline" você pode ver todas as ultimas commits
+
+2-Usar o git status para ver oq tem para acrescentar ou remover
