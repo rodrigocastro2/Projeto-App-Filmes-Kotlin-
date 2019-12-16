@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f1f1f1">
+
+
+
+    <ImageView
+        android:id="@+id/capa_detalhes"
+        android:layout_width="160dp"
+        android:layout_height="203dp"
+        android:background="#000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:id="@+id/titulo_detalhes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/capa_detalhes"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:text="VINGADORES"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="#000000"
+
+        />
+
+    <TextView
+        android:id="@+id/sinopse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_detalhes"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textColor="#000000"
+        android:text="@string/mocksinopse"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/genero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sinopse"
+        app:layout_constraintLeft_toLeftOf="@+id/sinopse"
+        android:layout_marginTop="15dp"
+        android:text="Acao, ficcao"
+        />
+
+    <TextView
+        android:id="@+id/nota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/genero"
+        app:layout_constraintLeft_toLeftOf="@+id/sinopse"
+        android:layout_marginTop="5dp"
+        android:text="10.0"
+        />
+
+    <ImageView
+        android:id="@+id/botaoaddfavoritos"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/addfavoritoscinza"
+        app:layout_constraintLeft_toLeftOf="@+id/sinopse"
+        app:layout_constraintTop_toBottomOf="@+id/nota" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
