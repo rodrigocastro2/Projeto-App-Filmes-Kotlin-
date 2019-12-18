@@ -65,7 +65,7 @@ class PopularesFragment : Fragment(), PopularesContrato.View {
 
     fun setupRecycler(lista: List<Filme>){
 
-        recycler_populares.adapter = activity?.let { ListaPopularesAdapter(lista, it) }
+        recycler_populares.adapter = activity?.let { PopularesAdapter(lista, it) }
         recycler_populares.layoutManager = GridLayoutManager(context, 2)
 
         val itemDecoration = ItemOffsetDecoration(context!!, R.dimen.item_offset)

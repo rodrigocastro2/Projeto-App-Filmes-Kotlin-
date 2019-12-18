@@ -11,8 +11,8 @@ import com.example.myapplication.ui.model.Filme
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.viewholder.view.*
 
-class ListaPopularesAdapter(private val listaFilmes: List<Filme>,
-                            private val context: Context) : RecyclerView.Adapter<ListaPopularesAdapter.ViewHolder>() {
+class PopularesAdapter(private val listaFilmes: List<Filme>,
+                       private val context: Context) : RecyclerView.Adapter<PopularesAdapter.ViewHolder>() {
 
     //Inflar o XML do ViewHolder(Antes da lista ser criada)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

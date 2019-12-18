@@ -26,39 +26,6 @@ class MovieRepository {
                 val objetoRecebido : FilmeResponse = response.body()!!
                 val lista : List<Filme> = objetoRecebido.results
             }
-
         })
-
-
-
-
-
-
-
-
-
-
-
-
-        /*val retrofitClient = RetrofitInitializer
-            .getRetrofitInstance()
-
-        val endpoint = retrofitClient.create(MovieEndPoint ::class.java)
-        val callback = endpoint.populares()
-
-        callback.enqueue(object : Callback<List<Filme>> {
-            override fun onFailure(call: Call<List<Filme>>, t: Throwable) {
-                Log.e("falha", "deu erro")
-
-            }
-
-            override fun onResponse(call: Call<List<Filme>>, response: Response<List<Filme>>) {
-                response.body()?.forEach {
-                    Log.e("sucesso", "deu carregou")
-                }
-
-            }
-        })
-*/
     }
 }
