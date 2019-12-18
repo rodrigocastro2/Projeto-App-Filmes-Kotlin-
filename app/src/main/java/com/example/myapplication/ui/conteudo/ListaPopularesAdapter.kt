@@ -23,8 +23,11 @@ class ListaPopularesAdapter(private val listaFilmes: List<Filme>,
 
     //Após a lista ser criada, chamará o "bind" dentro da classe "ViewHolder"
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+
+        val filme = listaFilmes[position]
+        holder.bind(filme)
     }
+
 
 
     //O get item vai passar a posição do exato objeto que foi clicado, para ser resgatada no bind
@@ -37,14 +40,15 @@ class ListaPopularesAdapter(private val listaFilmes: List<Filme>,
         return listaFilmes.size
     }
 
-
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         //O método bind irá setar a capa e qualquer outro visual
         fun bind(filme : Filme){
-            Picasso.get().load(filme.urlFoto).resize(160, 230).placeholder(R.drawable.fancicani).into(itemView.imagemcapa)
-            itemView.titulofilme.text = filme.nome
+
+            val titulo = itemView.titulofilme
+            titulo.text = filme.title
+
+            val link_poster = "https://image.tmdb.org/t/p/w500"
+            Picasso.get().load(link_poster+filme.poster_path).into(itemView.poster)
         }
     }
 }

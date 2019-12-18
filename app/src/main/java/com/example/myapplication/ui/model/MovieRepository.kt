@@ -2,7 +2,7 @@ package com.example.myapplication.ui.model
 
 import android.content.Context
 import android.util.Log
-import com.example.myapplication.MovieEndPoint
+import com.example.myapplication.Service
 import com.example.myapplication.ui.retrofit.RetrofitInitializer
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,8 +11,36 @@ import android.widget.Toast
 
 class MovieRepository {
 
-    fun getData() {
-        val retrofitClient = RetrofitInitializer
+    fun servicePopulares() {
+
+        val call = RetrofitInitializer().service().populares
+        call.enqueue(object : Callback<FilmeResponse>{
+            override fun onFailure(call: Call<FilmeResponse>, t: Throwable) {
+                Log.e("deu ruim", t?.message)
+            }
+
+            override fun onResponse(
+                call: Call<FilmeResponse>,
+                response: Response<FilmeResponse>
+            ) {
+                val objetoRecebido : FilmeResponse = response.body()!!
+                val lista : List<Filme> = objetoRecebido.results
+            }
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+        /*val retrofitClient = RetrofitInitializer
             .getRetrofitInstance()
 
         val endpoint = retrofitClient.create(MovieEndPoint ::class.java)
@@ -31,6 +59,6 @@ class MovieRepository {
 
             }
         })
-
+*/
     }
 }
