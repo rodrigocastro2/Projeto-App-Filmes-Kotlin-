@@ -1,7 +1,8 @@
 package com.example.myapplication.ui.favoritos
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.myapplication.ItemOffsetDecoration
 import com.example.myapplication.R
 import com.example.myapplication.ui.model.Filme
-import com.example.myapplication.ui.model.FilmeResponse
-import com.example.myapplication.ui.retrofit.RetrofitInitializer
 import kotlinx.android.synthetic.main.fragment_favoritos.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class FavoritosFragment : Fragment(), FavoritosContrato.View {
 
@@ -32,36 +28,23 @@ class FavoritosFragment : Fragment(), FavoritosContrato.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val call = RetrofitInitializer().service().populares
-        call.enqueue(object : Callback<FilmeResponse> {
-            override fun onFailure(call: Call<FilmeResponse>, t: Throwable) {
-                Log.e("deu ruim", t?.message)
-            }
-
-            override fun onResponse(
-                call: Call<FilmeResponse>,
-                response: Response<FilmeResponse>
-            ) {
-                val objetoRecebido: FilmeResponse = response.body()!!
-                val lista: List<Filme> = objetoRecebido.results
-
-                setupRecycler(lista)
-            }
-        })
+        var sharedPreferences : SharedPreferences = this.activity!!.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val favoritos = sharedPreferences.getString("favoritos", "")
+        presenter = FavoritosPresenter(this)
+        setupRecycler(presenter.listaRetornadaMutable)
+        favoritos?.let { presenter.retornarLista(it) }
     }
 
-    override fun mostrarLista() {
-
-    }
-
-    fun setupRecycler(lista: List<Filme>){
-
+    private fun setupRecycler(lista: List<Filme>){
         recycler_favoritos.adapter = activity?.let { FavoritosAdapter(lista, it) }
         recycler_favoritos.layoutManager = GridLayoutManager(context, 2)
 
         val itemDecoration = ItemOffsetDecoration(context!!, R.dimen.item_offset)
         recycler_favoritos.addItemDecoration(itemDecoration)
+    }
+
+    override fun updateRecycler() {
+        recycler_favoritos.adapter?.notifyDataSetChanged()
     }
 
 

@@ -1,5 +1,7 @@
 package com.example.myapplication.ui.conteudo
 
+import com.example.myapplication.ui.model.Filme
+
 class PopularesContrato {
 
     //As duas interfaces da classe com as suas respectivas funcoes (só o cabeçalho da funcao)
@@ -12,7 +14,7 @@ class PopularesContrato {
 
     interface View{
 
-        fun mostrarLista()
+        fun setupRecycler(lista :List<Filme>)
 
     }
 

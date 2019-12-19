@@ -18,8 +18,8 @@
 
             <ImageView
                 android:id="@+id/capa_detalhes"
-                android:layout_width="160dp"
-                android:layout_height="203dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="#000000"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -39,7 +39,7 @@
                 android:layout_marginLeft="50dp"
                 android:text="VINGADORES"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textColor="#000000"
 
                 />
@@ -56,27 +56,19 @@
                 android:layout_marginRight="50dp"
                 android:textColor="#000000"
                 android:text="@string/mocksinopse"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 />
 
-            <TextView
-                android:id="@+id/genero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/sinopse"
-                app:layout_constraintLeft_toLeftOf="@+id/sinopse"
-                android:layout_marginTop="15dp"
-                android:text="Acao, ficcao"
-                />
 
             <TextView
                 android:id="@+id/nota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/genero"
+                app:layout_constraintTop_toBottomOf="@+id/sinopse"
                 app:layout_constraintLeft_toLeftOf="@+id/sinopse"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:text="10.0"
+                android:textSize="15sp"
                 />
 
             <ImageView

@@ -1,8 +1,9 @@
 package com.example.myapplication.ui.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
- class Filme() {
+class Filme() : Serializable {
 
      lateinit var poster_path: String
      lateinit var title: String

@@ -1,18 +1,21 @@
 package com.example.myapplication.ui.conteudo
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.ui.detalhes.DetalhesFilmes
 import com.example.myapplication.ui.model.Filme
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.viewholder.view.*
 
 class PopularesAdapter(private val listaFilmes: List<Filme>,
                        private val context: Context) : RecyclerView.Adapter<PopularesAdapter.ViewHolder>() {
+
 
     //Inflar o XML do ViewHolder(Antes da lista ser criada)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,6 +29,12 @@ class PopularesAdapter(private val listaFilmes: List<Filme>,
 
         val filme = listaFilmes[position]
         holder.bind(filme)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, DetalhesFilmes::class.java)
+            intent.putExtra("dados", filme)
+            context.startActivity(intent)
+        }
     }
 
 
@@ -49,6 +58,7 @@ class PopularesAdapter(private val listaFilmes: List<Filme>,
 
             val link_poster = "https://image.tmdb.org/t/p/w500"
             Picasso.get().load(link_poster+filme.poster_path).into(itemView.poster)
+
         }
     }
 }

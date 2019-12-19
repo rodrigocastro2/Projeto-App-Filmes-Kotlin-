@@ -21,16 +21,18 @@ class PesquisarFragment : Fragment(), PesquisarContrato.View {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        presenter = PesquisarPresenter(this)
-        presenter.pesquisa()
-        
-        (activity as MainActivity).search = { onSearch(it) }
-        
         return inflater.inflate(R.layout.fragment_pesquisar, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        presenter = PesquisarPresenter(this)
+        presenter.pesquisa()
+    }
+
     private fun onSearch(text: String) {
-        text_pesquisar.text = text
+
     }
 
 

@@ -3,7 +3,6 @@ package com.example.myapplication.ui.conteudo
 import android.util.Log
 import com.example.myapplication.ui.model.Filme
 import com.example.myapplication.ui.model.FilmeResponse
-import com.example.myapplication.ui.model.MovieRepository
 import com.example.myapplication.ui.retrofit.RetrofitInitializer
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,6 +24,7 @@ class PopularesPresenter(val view:PopularesContrato.View) : PopularesContrato.Pr
                 ) {
                     val objetoRecebido: FilmeResponse = response.body()!!
                     val lista: List<Filme> = objetoRecebido.results
+                    view.setupRecycler(lista)
                 }
             })
     }
