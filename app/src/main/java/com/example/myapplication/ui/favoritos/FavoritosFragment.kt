@@ -13,6 +13,7 @@ import com.example.myapplication.R
 import com.example.myapplication.ui.model.Filme
 import kotlinx.android.synthetic.main.fragment_favoritos.*
 
+
 class FavoritosFragment : Fragment(), FavoritosContrato.View {
 
     private lateinit var presenter: FavoritosPresenter
@@ -28,14 +29,16 @@ class FavoritosFragment : Fragment(), FavoritosContrato.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var sharedPreferences : SharedPreferences = this.activity!!.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var sharedPreferences: SharedPreferences =
+            this.activity!!.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val favoritos = sharedPreferences.getString("favoritos", "")
         presenter = FavoritosPresenter(this)
         setupRecycler(presenter.listaRetornadaMutable)
         favoritos?.let { presenter.retornarLista(it) }
     }
 
-    private fun setupRecycler(lista: List<Filme>){
+
+    private fun setupRecycler(lista: List<Filme>) {
         recycler_favoritos.adapter = activity?.let { FavoritosAdapter(lista, it) }
         recycler_favoritos.layoutManager = GridLayoutManager(context, 2)
 

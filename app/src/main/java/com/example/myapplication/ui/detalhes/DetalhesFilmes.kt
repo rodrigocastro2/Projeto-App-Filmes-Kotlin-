@@ -3,14 +3,12 @@ package com.example.myapplication.ui.detalhes
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.myapplication.R
 import com.example.myapplication.ui.model.Filme
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.detalhes_filme.*
-import kotlinx.android.synthetic.main.viewholder.view.*
 
 class DetalhesFilmes : AppCompatActivity(), DetalhesContrato.View {
 

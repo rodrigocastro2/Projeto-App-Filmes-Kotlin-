@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.conteudo
 
 import android.util.Log
+import com.example.myapplication.Service
 import com.example.myapplication.ui.model.Filme
 import com.example.myapplication.ui.model.FilmeResponse
 import com.example.myapplication.ui.retrofit.RetrofitInitializer
@@ -12,7 +13,7 @@ class PopularesPresenter(val view:PopularesContrato.View) : PopularesContrato.Pr
 
     override fun pegarLista() {
 
-            val call = RetrofitInitializer().service().populares
+            val call = RetrofitInitializer().service().getPopulares(Service.api_key)
             call.enqueue(object : Callback<FilmeResponse> {
                 override fun onFailure(call: Call<FilmeResponse>, t: Throwable) {
                     Log.e("deu ruim", t?.message)

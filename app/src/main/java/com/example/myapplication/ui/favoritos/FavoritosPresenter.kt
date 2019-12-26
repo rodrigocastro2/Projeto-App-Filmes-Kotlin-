@@ -1,11 +1,8 @@
 package com.example.myapplication.ui.favoritos
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.myapplication.Service
 import com.example.myapplication.ui.model.Filme
-import com.example.myapplication.ui.model.FilmeResponse
 import com.example.myapplication.ui.retrofit.RetrofitInitializer
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,7 +18,7 @@ class FavoritosPresenter(val view: FavoritosContrato.View) : FavoritosContrato.P
 
         for (id in favoritosLista) {
 
-            val call = RetrofitInitializer().service().getFilmeId(id)
+            val call = RetrofitInitializer().service().getFilmeId(id, Service.api_key)
             call.enqueue(object : Callback<Filme> {
                 override fun onFailure(call: Call<Filme>, t: Throwable) {
                     Log.e("deu ruim", t?.message)

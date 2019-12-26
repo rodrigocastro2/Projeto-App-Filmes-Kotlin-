@@ -1,15 +1,17 @@
 package com.example.myapplication.ui.pesquisar
 
+import com.example.myapplication.ui.model.Filme
+
 class PesquisarContrato {
 
     interface Presenter {
 
-        fun pesquisa()
+        fun pesquisa(tituloFilme: String)
     }
 
     interface View {
 
-        fun poePesquisaNaTela()
+        fun updateRecycler(lista: List<Filme>)
 
     }
 }
