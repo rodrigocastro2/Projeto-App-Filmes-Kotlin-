@@ -5,6 +5,8 @@ import com.example.myapplication.ui.favoritos.FavoritosUtils
 
 class DetalhesPresenter(val view: DetalhesContrato.View) : DetalhesContrato.Presenter {
 
+    /** Funcao q recebe uma string com os Ids separados por "/"
+     * e verifica se o id indicado esta na string*/
     override fun verificarFavorito(stringFavoritos: String?, id: Int): Boolean {
         if(stringFavoritos!!.isEmpty())
             return false
@@ -13,6 +15,7 @@ class DetalhesPresenter(val view: DetalhesContrato.View) : DetalhesContrato.Pres
         return listaFavoritos.contains(idString)
     }
 
+    /** Funcao que adiciona um ID na StringFavoritos e commita no sharedPreferences*/
     override fun adicionarFavoritos(
         stringFavoritos: String?,
         id: Int,
@@ -23,6 +26,7 @@ class DetalhesPresenter(val view: DetalhesContrato.View) : DetalhesContrato.Pres
         editor.putString("favoritos", stringFavorito)
         editor.commit()
     }
+
 
     override fun removerFavoritos(
         stringFavoritos: String?,

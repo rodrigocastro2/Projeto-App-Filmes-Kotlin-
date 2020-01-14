@@ -134,7 +134,7 @@ public class Filme implements Serializable {
         this.release_date = release_date;
     }
 
-    String media_type;
+        String media_type;
         String popularity;
         Boolean adult;
         String backdrop_path;

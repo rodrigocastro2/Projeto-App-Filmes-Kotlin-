@@ -16,8 +16,6 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:listitem="@layout/viewholder"
         android:clipToPadding="false"
-        android:overScrollMode="never"
-
-        />
+        android:overScrollMode="never"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,19 +16,22 @@ class PopularesAdapter(private val listaFilmes: List<Filme>,
                        private val context: Context) : RecyclerView.Adapter<PopularesAdapter.ViewHolder>() {
 
 
-    //Inflar o XML do ViewHolder(Antes da lista ser criada)
+    /**Inflar o XML do ViewHolder(Antes da lista ser criada)*/
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view  = LayoutInflater.from(context).inflate(R.layout.viewholder, parent, false)
         return ViewHolder(view)
     }
 
 
-    //Após a lista ser criada, chamará o "bind" dentro da classe "ViewHolder"
+    /**Após a lista ser criada, chamará o "bind" dentro da classe "ViewHolder"*/
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val filme = listaFilmes[position]
         holder.bind(filme)
 
+
+        /** Torna os itens clicaveis e leva para outra activity (Detalhes),
+         * passando um bundle com as informaçoes necessarias*/
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetalhesFilmes::class.java)
             intent.putExtra("dados", filme)
@@ -38,18 +41,19 @@ class PopularesAdapter(private val listaFilmes: List<Filme>,
 
 
 
-    //O get item vai passar a posição do exato objeto que foi clicado, para ser resgatada no bind
+    /**O get item vai passar a posição do exato objeto que foi clicado, para ser resgatada no bind*/
     fun getItem(position: Int) = listaFilmes[position]
 
 
 
-    //Passa o tamanho da lista
+    /**Passa o tamanho da lista*/
     override fun getItemCount(): Int {
         return listaFilmes.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //O método bind irá setar a capa e qualquer outro visual
+        /**O método bind irá setar os atributos recebidos no ViewHolder*/
+
         fun bind(filme : Filme){
 
             val titulo = itemView.titulofilme

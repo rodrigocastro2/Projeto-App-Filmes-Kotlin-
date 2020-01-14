@@ -27,11 +27,13 @@ class PopularesFragment : Fragment(), PopularesContrato.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /** Chama a funcao pegarLista implementada no Presenter */
         presenter = PopularesPresenter(this)
         presenter.pegarLista()
 
     }
 
+    /** Seta o recycler com o adapter e seu tipo de layout*/
     override fun setupRecycler(lista: List<Filme>){
 
         recycler_populares.adapter = activity?.let { PopularesAdapter(lista, it) }

@@ -4,7 +4,7 @@ import com.example.myapplication.ui.model.Filme
 
 class PopularesContrato {
 
-    //As duas interfaces da classe com as suas respectivas funcoes (só o cabeçalho da funcao)
+    //As duas interfaces da classe com as suas respectivas declaracoes funcoes (só o cabeçalho da funcao)
 
     interface Presenter{
 

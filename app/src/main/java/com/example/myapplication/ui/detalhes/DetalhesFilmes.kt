@@ -20,6 +20,8 @@ class DetalhesFilmes : AppCompatActivity(), DetalhesContrato.View {
         val dados = intent.getSerializableExtra("dados") as Filme
         setupView(dados)
 
+
+        /** */
         presenter = DetalhesPresenter(this)
 
         var SharedPreferences = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
